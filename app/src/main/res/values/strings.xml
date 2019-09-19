@@ -1,6 +1,7 @@
 <resources>
-<string name="app_name">Voice_2</string>
-<string name="error">No Activity</string>
-<string name="text">Test RecognizerIntent</string>
-<string name="button">Speech</string>
+    <string name="app_name">Voice_2</string>
+    <string name="error">No Activity</string>
+    <string name="text">Test RecognizerIntent</string>
+    <string name="button">Speech</string>
+    <string name="languages">japanese</string>
 </resources>
