@@ -11,15 +11,37 @@ import java.util.*
 
 class MainActivity : Activity() {
     private var textView = findViewById<TextView>(R.id.text_view)
-
+    private var changeLangages = findViewById<Button>(R.id.changelanguages_button)
     private var lang: Int = 0
+    var str = "Japanese"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         // 言語選択 0:日本語、1:英語、2:オフライン、その他:General
-        lang = 0
+        changeLangages.setOnClickListener{
+            if(lang == 0){
+                str = "Japaneese"
+                str = getString(R.string.languages)
+                lang = 1
+            }
+            else if(lang == 1){
+                str = "English"
+                str = getString(R.string.languages)
+                lang = 2
+            }
+            else if(lang == 2){
+                str = "French"
+                str = getString(R.string.languages)
+                lang = 3
+            }
+            else{
+                str = "Off line"
+                str = getString(R.string.languages)
+                lang = 0
+            }
+        }
 
         // 認識結果を表示させる
         textView = findViewById(R.id.text_view)
@@ -43,6 +65,9 @@ class MainActivity : Activity() {
             intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.ENGLISH.toString())
         } else if (lang == 2) {
             // Off line mode
+            intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE,Locale.FRANCE.toString())
+        } else if (lang == 3) {
+            //Off line mode
             intent.putExtra(RecognizerIntent.EXTRA_PREFER_OFFLINE, true)
         } else {
             intent.putExtra(
