@@ -22,7 +22,7 @@ class MainActivity : Activity() {
         lang = 0
 
         // 認識結果を表示させる
-        textView = findViewById<TextView>(R.id.text_view)
+        textView = findViewById(R.id.text_view)
 
         val buttonStart = findViewById<Button>(R.id.button_start)
         buttonStart.setOnClickListener {
@@ -68,7 +68,7 @@ class MainActivity : Activity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent) {
         super.onActivityResult(requestCode, resultCode, data)
 
-        if (requestCode == REQUEST_CODE && resultCode == Activity.RESULT_OK) {
+        if (requestCode == REQUEST_CODE && resultCode == RESULT_OK) {
             // 認識結果を ArrayList で取得
             val candidates = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS)
 
@@ -81,6 +81,6 @@ class MainActivity : Activity() {
 
     companion object {
 
-        private val REQUEST_CODE = 1000
+        private const val REQUEST_CODE = 1000
     }
 }
